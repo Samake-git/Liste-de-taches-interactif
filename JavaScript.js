@@ -1,6 +1,7 @@
 let tasks = [];
 
-// Fonction pour charger les t‚ches depuis le stockage local
+
+// Fonction pour charger les t√¢ches depuis le stockage local
 function loadTasks() {
     const storedTasks = localStorage.getItem('tasks');
     if (storedTasks) {
@@ -10,12 +11,12 @@ function loadTasks() {
     }
 }
 
-// Fonction pour enregistrer les t‚ches dans le stockage local
+// Fonction pour enregistrer les t√¢ches dans le stockage local
 function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Appel de la fonction pour charger les t‚ches lors du chargement de la page
+// Appel de la fonction pour charger les t√¢ches lors du chargement de la page
 loadTasks();
 
 function addTask() {
@@ -26,21 +27,21 @@ function addTask() {
     const dueDate = dueDateInput.value;
     const status = statusSelect.value;
 
-    // VÈrifier si le champ de saisie de la t‚che est vide
+    // V√©rifier si le champ de saisie de la t√¢che est vide
     if (taskText === '') {
-        alert("Veuillez entrer une t‚che.");
+        alert("Veuillez entrer une t√¢che.");
         return;
     }
 
-    // VÈrifier si aucune date n'est sÈlectionnÈe ou si la date est antÈrieure ‡ la date actuelle
+    // V√©rifier si aucune date n'est s√©lectionn√©e ou si la date est ant√©rieure √† la date actuelle
     const currentDate = new Date();
     const selectedDate = new Date(dueDate);
-    if (!dueDate || selectedDate < currentDate) {
+    if (!dueDate || selectedDate >= currentDate) {
         alert("Veuillez choisir une date valide dans le futur.");
         return;
     }
 
-    // Ajouter la t‚che si elle passe les validations
+    // Ajouter la t√¢che si elle passe les validations
     tasks.push({ text: taskText, dueDate: dueDate, status: status });
     displayTasks();
     taskInput.value = '';
@@ -73,9 +74,9 @@ function displayTasks() {
         const statusCell = document.createElement('td');
         const statusSelect = document.createElement('select');
         statusSelect.innerHTML = `
-            <option value="‡ faire" ${task.status === '‡ faire' ? 'selected' : ''}>¿ faire</option>
+            <option value="√† faire" ${task.status === 'a faire' ? 'selected' : ''}>√Ä faire</option>
             <option value="en cours" ${task.status === 'en cours' ? 'selected' : ''}>En cours</option>
-            <option value="terminÈ" ${task.status === 'terminÈ' ? 'selected' : ''}>TerminÈ</option>
+            <option value="termin√©" ${task.status === 'termin√©' ? 'selected' : ''}>Termin√©</option>
         `;
         statusSelect.addEventListener('change', () => updateTaskStatus(index, statusSelect.value));
         statusCell.appendChild(statusSelect);
@@ -111,29 +112,29 @@ function deleteTask(index) {
         displayTasks();
         saveTasks();
         updateTaskCounts();
-    }, 300); // Attendre 300ms avant de supprimer rÈellement la t‚che
+    }, 300); // Attendre 300ms avant de supprimer r√©ellement la t√¢che
 }
 
 function modifyTask(index) {
-    const newTaskText = prompt('Entrez la nouvelle t‚che :');
+    const newTaskText = prompt('Entrez la nouvelle t√¢che :');
     if (newTaskText !== null && newTaskText.trim() !== '') {
         tasks[index].text = newTaskText.trim();
         displayTasks();
-        saveTasks(); // Enregistrer les t‚ches aprËs chaque modification
+        saveTasks(); // Enregistrer les t√¢ches apr√®s chaque modification
     }
 }
 
 function updateTaskStatus(index, newStatus) {
     tasks[index].status = newStatus;
-    saveTasks(); // Enregistrer les t‚ches aprËs chaque mise ‡ jour de statut
+    saveTasks(); // Enregistrer les t√¢ches apr√®s chaque mise √† jour de statut
     updateTaskCounts();
 }
 
 function updateTaskCounts() {
-    const todoCount = tasks.filter(task => task.status === '‡ faire').length;
+    const todoCount = tasks.filter(task => task.status === '√† faire').length;
     const inProgressCount = tasks.filter(task => task.status === 'en cours').length;
-    const doneCount = tasks.filter(task => task.status === 'terminÈ').length;
+    const doneCount = tasks.filter(task => task.status === 'termin√©').length;
 
     const countInfo = document.getElementById('countInfo');
-    countInfo.textContent = `¿ faire: ${todoCount} | En cours: ${inProgressCount} | TerminÈ: ${doneCount}`;
+    countInfo.textContent = `√Ä faire: ${todoCount} | En cours: ${inProgressCount} | Termin√©: ${doneCount}`;
 }
