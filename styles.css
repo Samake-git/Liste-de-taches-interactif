@@ -1,19 +1,21 @@
-﻿body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
 }
 
 .todo-container {
-    max-width: 50%;
+    max-width: 90%;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     /* background-image: linear-gradient(120deg, #16166f, #061048); */
     font-family: "Poppins", sans-serif;
-    min-height: 50vh;
-    background-image: radial-gradient(circle at bottom center, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 4%,rgb(38, 152, 211) 4%, rgb(38, 152, 211) 8%,rgb(46, 139, 209) 8%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 16%,rgb(60, 114, 206) 16%, rgb(60, 114, 206) 20%,rgb(68, 101, 205) 20%, rgb(68, 101, 205) 24%,transparent 24%, transparent 100%),radial-gradient(circle at top center, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,transparent 21%, transparent 100%),radial-gradient(circle at center left, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,transparent 21%, transparent 100%),radial-gradient(circle at center right, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,rgb(75, 88, 203) 21%, rgb(75, 88, 203) 100%);
-}
+    min-height: 100vh;
+    /*background-image: radial-gradient(circle at bottom center, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 4%,rgb(38, 152, 211) 4%, rgb(38, 152, 211) 8%,rgb(46, 139, 209) 8%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 16%,rgb(60, 114, 206) 16%, rgb(60, 114, 206) 20%,rgb(68, 101, 205) 20%, rgb(68, 101, 205) 24%,transparent 24%, transparent 100%),radial-gradient(circle at top center, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,transparent 21%, transparent 100%),radial-gradient(circle at center left, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,transparent 21%, transparent 100%),radial-gradient(circle at center right, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,rgb(75, 88, 203) 21%, rgb(75, 88, 203) 100%);
+} */
+    background-color:aliceblue;
+
 
 .task-input {
     display: flex;
@@ -24,8 +26,23 @@
 
 h1 {
     text-align: center;
-    color: white;
+    color: black;
+    animation: zoomInFade 1s ease-out;
 }
+
+@keyframes zoomInFade {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
 
 div {
     margin-bottom: 10px;
@@ -33,6 +50,7 @@ div {
 
 input[type="text"],
 input[type="date"],
+select,
 button {
     margin-right: 10px;
     padding: 5px 10px;
@@ -42,16 +60,26 @@ button {
 }
 
 input[type="text"],
-input[type="date"] {
-    width: 100%;
+input[type="date"],
+select {
+    width: 50%;
     margin-bottom: 10px; /* Ajout d'un espace entre les champs */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
     background-color: #2d854f;
     color: white;
     cursor: pointer;
-    width: 100%;
+    width: 30%;
+    border: none;
+    border-radius: 5px;
 }
 
     button:hover {
@@ -59,14 +87,16 @@ button {
     }
 
 table {
+    max-width: 100%;
     width: 100%;
-    border-collapse: collapse;
+    border-collapse:separate;
 }
 
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
+
 
 thead {
     background-color: #f2f2f2;
@@ -146,5 +176,6 @@ td {
     input[type="date"],
     button {
         margin-right: 0;
+
     }
 }
