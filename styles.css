@@ -26,6 +26,7 @@ body {
 
 h1 {
     text-align: center;
+    margin:6%;
     color: black;
     animation: zoomInFade 1s ease-out;
 }
@@ -47,6 +48,18 @@ h1 {
 div {
     margin-bottom: 10px;
 }
+
+i {
+    color: #2d854f; /* Couleur de l'icône */
+    font-size: 20px; /* Taille de l'icône */
+    margin-right: 5px; /* Espace à droite de l'icône */
+    cursor: pointer; /* Curseur pointer au survol de l'icône */
+}
+
+    i:hover {
+        color: #45a049; /* Couleur de l'icône au survol */
+    }
+
 
 input[type="text"],
 input[type="date"],
