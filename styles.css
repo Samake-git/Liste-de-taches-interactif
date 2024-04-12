@@ -1,0 +1,150 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.todo-container {
+    max-width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* background-image: linear-gradient(120deg, #16166f, #061048); */
+    font-family: "Poppins", sans-serif;
+    min-height: 50vh;
+    background-image: radial-gradient(circle at bottom center, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 4%,rgb(38, 152, 211) 4%, rgb(38, 152, 211) 8%,rgb(46, 139, 209) 8%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 16%,rgb(60, 114, 206) 16%, rgb(60, 114, 206) 20%,rgb(68, 101, 205) 20%, rgb(68, 101, 205) 24%,transparent 24%, transparent 100%),radial-gradient(circle at top center, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,transparent 21%, transparent 100%),radial-gradient(circle at center left, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,transparent 21%, transparent 100%),radial-gradient(circle at center right, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,rgb(75, 88, 203) 21%, rgb(75, 88, 203) 100%);
+}
+
+.task-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="date"],
+button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    margin-bottom: 10px; /* Ajout d'un espace entre les champs */
+}
+
+button {
+    background-color: #2d854f;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th {
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+    th:first-child, td:first-child {
+        border-left: 1px solid #ddd;
+    }
+
+    th:last-child, td:last-child {
+        border-right: 1px solid #ddd;
+    }
+
+/* Animation pour les tâches */
+
+.task-item {
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+    .task-item.completed {
+        text-decoration: line-through;
+    }
+
+/* Animation pour l'ajout de tâches */
+
+.add-animation {
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation pour la suppression de tâches */
+
+.delete-animation {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Media Queries pour le rendu responsive */
+
+@media only screen and (max-width: 600px) {
+    input[type="text"],
+    input[type="date"],
+    button {
+        margin-right: 0;
+    }
+}

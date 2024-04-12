@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="todo-container">
+        <h1>Liste de Tâches Interactive </h1>
+        <div>
+            <div class="task-input">
+                <input type="text" id="taskInput" placeholder="Ajouter une tâche...">
+                <input type="date" id="dueDate">
+                <select id="statusSelect">
+                    <option value="à faire">À faire</option>
+                    <option value="en cours">En cours</option>
+                    <option value="terminé">Terminé</option>
+                </select>
+            </div>
+            <button onclick="addTask()">Ajouter</button>
+        </div>
+        <div></div>
+
+        <table id="taskTable">
+            <thead>
+                <tr>
+                    <th>Tâches </th>
+                    <th>Date d'échéance</th>
+                    <th>Statut</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="taskList"></tbody>
+        </table>
+        <div></div>
+        <div id="countInfo" class="task-counts"></div>
+
+    </div>
+
+    <script src="JavaScript.js"></script>
+</body>
+</html>
