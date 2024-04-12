@@ -110,13 +110,30 @@ function deleteTask(index) {
 }
 
 function modifyTask(index) {
-    const newTaskText = prompt('Entrez la nouvelle tâche :');
-    if (newTaskText !== null && newTaskText.trim() !== '') {
-        tasks[index].text = newTaskText.trim();
-        displayTasks();
-        saveTasks(); // Enregistrer les tâches après chaque modification
+    const task = tasks[index];
+
+    // Demander à l'utilisateur de saisir les modifications
+    const newTaskText = prompt('Entrez la nouvelle tâche :', task.text);
+    const newDueDate = prompt('Entrez la nouvelle date d\'échéance :', task.dueDate);
+    const newStatus = prompt('Entrez le nouveau statut (à faire, en cours, terminé) :', task.status);
+
+    // Vérifier si l'utilisateur a annulé la modification ou laissé les champs vides
+    if (newTaskText === null || newTaskText.trim() === '' ||
+        newDueDate === null || newDueDate.trim() === '' ||
+        newStatus === null || newStatus.trim() === '') {
+        return; // Sortir de la fonction sans effectuer de modification
     }
+
+    // Mettre à jour la tâche avec les nouvelles valeurs
+    tasks[index].text = newTaskText.trim();
+    tasks[index].dueDate = newDueDate.trim();
+    tasks[index].status = newStatus.trim();
+
+    // Actualiser l'affichage et enregistrer les modifications
+    displayTasks();
+    saveTasks();
 }
+
 
 function updateTaskStatus(index, newStatus) {
     tasks[index].status = newStatus;
