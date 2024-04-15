@@ -1,10 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
+    width: 100vw;
+    margin: 0px;
 }
 
 .todo-container {
-    max-width: 70%;
+    width: 50%;
     margin: 30px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -24,6 +26,7 @@ body {
 
 .task-input {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
 }
@@ -105,7 +108,7 @@ button {
     }
 
 table {
-    max-width: 100%;
+    /* max-width: 100%; */
     width: 100%;
     border-collapse:separate;
 }
@@ -209,9 +212,10 @@ td:nth-child(4) {
     input[type="date"],
     button {
         margin-right: 0;
-    }
 
-     .todo-container{
+    }
+    
+    .todo-container{
         width: 100%;
         padding: 0px;
        
