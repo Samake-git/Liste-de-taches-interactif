@@ -1,3 +1,7 @@
+// Déclaration d'encodage UTF-8
+// Ceci assure que les caractères spéciaux, y compris les accents, sont correctement interprétés
+
+
 let tasks = [];
 
 
@@ -23,9 +27,11 @@ function addTask() {
     const taskInput = document.getElementById('taskInput');
     const dueDateInput = document.getElementById('dueDate');
     const statusSelect = document.getElementById('statusSelect');
+    const prioritySelect = document.getElementById('prioritySelect'); // Nouveau
     const taskText = taskInput.value.trim();
     const dueDate = dueDateInput.value;
     const status = statusSelect.value;
+    const priority = prioritySelect.value; // Nouveau
 
     // Vérifier si le champ de saisie de la tâche est vide
     if (taskText === '') {
@@ -42,7 +48,7 @@ function addTask() {
     }
 
     // Ajouter la tâche si elle passe les validations
-    tasks.push({ text: taskText, dueDate: dueDate, status: status });
+    tasks.push({ text: taskText, dueDate: dueDate, status: status, priority: priority }); // Modifié
     displayTasks();
     taskInput.value = '';
     dueDateInput.value = '';
@@ -57,6 +63,7 @@ function addTask() {
         newTaskItem.classList.remove('add-animation');
     }, 300);
 }
+
 
 
 function displayTasks() {
@@ -77,6 +84,17 @@ function displayTasks() {
         `;
         statusSelect.addEventListener('change', () => updateTaskStatus(index, statusSelect.value));
         statusCell.appendChild(statusSelect);
+
+        const priorityCell = document.createElement('td'); // Nouveau
+        const prioritySelect = document.createElement('select'); // Nouveau
+        prioritySelect.innerHTML = `
+            <option value="faible" ${task.priority === 'faible' ? 'selected' : ''}>Faible</option>
+            <option value="moyenne" ${task.priority === 'moyenne' ? 'selected' : ''}>Moyenne</option>
+            <option value="élevée" ${task.priority === 'élevée' ? 'selected' : ''}>Élevée</option>
+        `;
+        prioritySelect.addEventListener('change', () => updateTaskPriority(index, prioritySelect.value)); // Nouveau
+        priorityCell.appendChild(prioritySelect); // Nouveau
+
         const actionCell = document.createElement('td');
         const deleteIcon = document.createElement('i');
         deleteIcon.className = 'fas fa-trash-alt'; // Remplacez cette classe par celle de votre icône de suppression
@@ -91,9 +109,15 @@ function displayTasks() {
         taskRow.appendChild(taskTextCell);
         taskRow.appendChild(dueDateCell);
         taskRow.appendChild(statusCell);
+        taskRow.appendChild(priorityCell); // Nouveau
         taskRow.appendChild(actionCell);
         taskList.appendChild(taskRow);
     });
+}
+
+function updateTaskPriority(index, newPriority) {
+    tasks[index].priority = newPriority;
+    saveTasks(); // Enregistrer les tâches après chaque mise à jour de priorité
 }
 
 
@@ -116,11 +140,13 @@ function modifyTask(index) {
     const newTaskText = prompt('Entrez la nouvelle tâche :', task.text);
     const newDueDate = prompt('Entrez la nouvelle date d\'échéance :', task.dueDate);
     const newStatus = prompt('Entrez le nouveau statut (à faire, en cours, terminé) :', task.status);
+    const newPriority = prompt('Entrez la nouvelle priorité (faible, moyenne, élevée) :', task.priority);
 
     // Vérifier si l'utilisateur a annulé la modification ou laissé les champs vides
     if (newTaskText === null || newTaskText.trim() === '' ||
         newDueDate === null || newDueDate.trim() === '' ||
-        newStatus === null || newStatus.trim() === '') {
+        newStatus === null || newStatus.trim() === '' ||
+        newPriority === null || newPriority.trim() === '') {
         return; // Sortir de la fonction sans effectuer de modification
     }
 
@@ -128,11 +154,13 @@ function modifyTask(index) {
     tasks[index].text = newTaskText.trim();
     tasks[index].dueDate = newDueDate.trim();
     tasks[index].status = newStatus.trim();
+    tasks[index].priority = newPriority.trim();
 
     // Actualiser l'affichage et enregistrer les modifications
     displayTasks();
     saveTasks();
 }
+
 
 
 function updateTaskStatus(index, newStatus) {
