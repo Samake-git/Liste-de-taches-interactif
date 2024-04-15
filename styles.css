@@ -15,7 +15,11 @@ body {
     /*background-image: radial-gradient(circle at bottom center, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 4%,rgb(38, 152, 211) 4%, rgb(38, 152, 211) 8%,rgb(46, 139, 209) 8%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 16%,rgb(60, 114, 206) 16%, rgb(60, 114, 206) 20%,rgb(68, 101, 205) 20%, rgb(68, 101, 205) 24%,transparent 24%, transparent 100%),radial-gradient(circle at top center, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,transparent 21%, transparent 100%),radial-gradient(circle at center left, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,transparent 21%, transparent 100%),radial-gradient(circle at center right, rgb(31, 165, 212) 0%, rgb(31, 165, 212) 3%,rgb(38, 152, 211) 3%, rgb(38, 152, 211) 9%,rgb(46, 139, 209) 9%, rgb(46, 139, 209) 12%,rgb(53, 127, 208) 12%, rgb(53, 127, 208) 15%,rgb(60, 114, 206) 15%, rgb(60, 114, 206) 18%,rgb(68, 101, 205) 18%, rgb(68, 101, 205) 21%,rgb(75, 88, 203) 21%, rgb(75, 88, 203) 100%);
 } */
     background-color:aliceblue;
-
+}
+.name{
+    background-color:aquamarine;
+    text-decoration:dotted;
+}
 
 .task-input {
     display: flex;
