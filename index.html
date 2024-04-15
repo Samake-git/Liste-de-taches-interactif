@@ -6,13 +6,12 @@
     <title>Todo List</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
     <div class="todo-container">
-         <div class="name">
+        <div class="name">
             <h1>NEKA BARA KETA</h1>
-         </div>
+        </div>
         <h1>Liste de Tâches Interactive </h1>
         <div>
             <div class="task-input">
@@ -23,20 +22,27 @@
                     <option value="en cours">En cours</option>
                     <option value="terminé">Terminé</option>
                 </select>
+                <select id="prioritySelect">
+
+                    <option value="faible">Faible</option>
+                    <option value="moyenne">Moyenne</option>
+                    <option value="élevée">Élevée</option>
+                </select>
             </div>
             <div class="button-container">
                 <button onclick="addTask()">Ajouter</button>
             </div>
-            
+
         </div>
         <div></div>
 
         <table id="taskTable">
             <thead>
                 <tr>
-                    <th>Tâches </th>
+                    <th>Tâches</th>
                     <th>Date d'échéance</th>
                     <th>Statut</th>
+                    <th>Priorité</th>
                     <th>Action</th>
                 </tr>
             </thead>
