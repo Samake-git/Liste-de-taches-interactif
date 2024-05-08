@@ -42,7 +42,7 @@ function addTask() {
     // Vérifier si aucune date n'est sélectionnée ou si la date est antérieure à la date actuelle
     const currentDate = new Date();
     const selectedDate = new Date(dueDate);
-    if (!dueDate || selectedDate =< currentDate) {
+    if (!dueDate || selectedDate <= currentDate) {
         alert("Veuillez choisir une date valide dans le futur.");
         return;
     }
